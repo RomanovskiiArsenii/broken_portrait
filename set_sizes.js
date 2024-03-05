@@ -1,7 +1,7 @@
 const setSizes = (() => {
     const container = document.getElementById('images_container');
     const image = document.getElementById('first_image');
-    const sizes = { small: '40vw', large: '80vw' };
+    const sizes = { small: '25vw', large: '80vw' };
     let rootStyles;
 
     const setContainerHeight = () => {
