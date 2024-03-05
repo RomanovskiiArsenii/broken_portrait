@@ -16,10 +16,49 @@ body {
     font-family: 'Abel', sans-serif;
 }
 
+header {
+    position: fixed;
+    top: 2vh;
+    left: 2vw;
+    z-index: 4;
+}
+
+header p {
+    position: relative;
+    background-color: #f9cfff;
+    padding: 0.6em 0.8em;
+    border-radius: 2em;
+    font-family: 'Oswald', sans-serif;
+    animation: messageMovesRight 1s ease forwards 1s, messageMovesLeft 1s ease forwards 5s;
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+@keyframes messageMovesRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-120%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+@keyframes messageMovesLeft {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-120%);
+    }
+}
+
 .images_container {
     position: relative;
-    width: 80%;
-    margin: 15vw 10% 20vw;
+    width: var(--coeff);
+    margin: 7vw auto 15vw;
     text-align: center;
 }
 
@@ -27,17 +66,15 @@ body {
     position: absolute;
     top: 83.9%;
     left: 45%;
-    z-index: 10;
+    z-index: 2;
     color: transparent;
-    font-size: 12vw;
+    font-size: calc(var(--coeff) / 6.666);
     line-height: 1em;
-    font-family: 'Island Moments', cursive;
-    font-family: 'Abel', sans-serif;
-    font-family: 'Oswald', sans-serif;
     text-align: left;
     background-image: url(images/gold_texture.jpg);
     background-size: cover;
     background-clip: text;
+    font-family: 'Oswald', sans-serif;
     background-position: bottom;
 }
 
@@ -47,7 +84,7 @@ body {
     left: 2%;
     width: 37%;
     height: 27%;
-    z-index: 10;
+    z-index: 2;
     background-color: rgb(120, 0, 0);
     color: whitesmoke;
 
@@ -65,7 +102,7 @@ body {
 .date > div:nth-child(1) {
     top: 5%;
     left: 0%;
-    font-size: 7vw;
+    font-size: calc(var(--coeff) / 11.429);
     text-align: center;
     letter-spacing: 0.8ch;
     writing-mode: vertical-lr;
@@ -75,7 +112,7 @@ body {
 .date > div:nth-child(2) {
     top: 0;
     right: 10%;
-    font-size: 17vw;
+    font-size: calc(var(--coeff) / 4.706);
     height: 100%;
     line-height: 0.95em;
     background-color: rgb(0 255 255 / 50%);
@@ -90,8 +127,8 @@ body {
     content: '';
     top: 50%;
     left: 0;
-    height: 1vw;
-    width: 17.1vw;
+    height: calc(var(--coeff) / 80);
+    width: calc(var(--coeff) / 4.678);
     transform: translateY(-50%);
     background-color: whitesmoke;
 }
@@ -116,7 +153,7 @@ body {
 .images_container img:nth-child(3) {
     clip-path: polygon(0% 0%, 100% 52%, 100% 70%, 0% 0%);
     filter: grayscale(100%) brightness(120%) invert(100%);
-    z-index: 100;
+    z-index: 3;
 }
 
 .images_container img:nth-child(4) {
@@ -169,17 +206,22 @@ body {
     margin: 1em;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .license p {
-    flex: 40%;
     text-align: center;
     margin: 1em;
     color: whitesmoke;
     word-spacing: 0.5ch;
-    font-size: 2vw;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .license p {
+        font-size: 14px;
+    }
 }
 
 .license a {
